@@ -1,10 +1,11 @@
 import requests
 import os
 from typing import Dict, Any
+from config.settings import ECONOMIC_DATA_API_KEY
 
 def fetch_economic_data(indicator: str) -> Dict[str, Any] | None:
     """Fetches macroeconomic data for a given indicator."""
-    api_key = os.getenv("ECONOMIC_DATA_API_KEY")
+    api_key = ECONOMIC_DATA_API_KEY
     url = f"https://api.example.com/economic-data?indicator={indicator}&apikey={api_key}"
     try:
         response = requests.get(url)
